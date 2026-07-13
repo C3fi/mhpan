@@ -18,3 +18,8 @@ require_command(){
     die "$msg"
     fi
 }
+
+sync_directory() {
+    mkdir -p "$2"
+    rsync -avh --no-perms --no-owner --no-group --chmod=u+rwx "$1/" "$2/"
+}

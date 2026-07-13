@@ -41,6 +41,9 @@ check_comp(){
     require_command git
     require_command pacman
     require_command curl
+    require_command zip
+    require_command fc-cache
+    require_command rsync
 
     log_success "All required commands are available"
 }

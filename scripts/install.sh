@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export PROJECT_ROOT
 
 source "$SCRIPT_DIR/lib/colors.sh"
 source "$SCRIPT_DIR/lib/utils.sh"
