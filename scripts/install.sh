@@ -1,18 +1,23 @@
 #!/usr/bin/env bash
 
-source lib/log.sh
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-source modules/check.sh
-source modules/finish.sh
-source modules/fonts.sh
-source modules/home.sh
-source modules/wallpapers.sh
-source modules/themes.sh
-source modules/configs.sh
-source modules/packages.sh
-source modules/services.sh
+source "$SCRIPT_DIR/lib/colors.sh"
+source "$SCRIPT_DIR/lib/utils.sh"
+source "$SCRIPT_DIR/lib/log.sh"
+source "$SCRIPT_DIR/modules/check.sh"
+source "$SCRIPT_DIR/modules/finish.sh"
+source "$SCRIPT_DIR/modules/fonts.sh"
+source "$SCRIPT_DIR/modules/home.sh"
+source "$SCRIPT_DIR/modules/wallpapers.sh"
+source "$SCRIPT_DIR/modules/themes.sh"
+source "$SCRIPT_DIR/modules/configs.sh"
+source "$SCRIPT_DIR/modules/packages.sh"
+source "$SCRIPT_DIR/modules/services.sh"
 
 main(){
+    log_info "Starting Mhpan Installer..."
+
     check_system
 
     install_configs

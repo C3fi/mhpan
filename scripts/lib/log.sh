@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
-log_info(){
-    echo "[INFO]$1"
+log_info() {
+    echo -e "${BLUE}[INFO]${RESET} $1"
 }
 
-log_success(){
-    echo "[OK]$1"
+log_success() {
+    echo -e "${GREEN}[ OK ]${RESET} $1"
 }
 
-log_warn(){
-    echo "[WARN]$1"
+log_warn() {
+    echo -e "${YELLOW}[WARN]${RESET} $1"
 }
 
-log_error(){
-    echo "[ERROR]$1"
+log_error() {
+    echo -e "${RED}[ERROR]${RESET} $1"
 }
