@@ -1,0 +1,88 @@
+# ---- Общий формат ----
+format = """
+[╭─](bold green)\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
+$line_break\
+[╰─](bold green)\
+$character
+"""
+
+# ---- Модули ----
+
+[username]
+format = "[$user]($style) "
+style_user = "red"
+style_root = "yellow"
+show_always = true
+disabled = false
+
+[hostname]
+ssh_only = true
+format = "[@$hostname]($style) "
+style = "green"
+
+[directory]
+format = "[$path]($style) "
+style = "bold green"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = " 🔒"
+
+[git_branch]
+format = "[$branch]($style) "
+style = "italic green"
+symbol = "🌿 "
+
+[git_status]
+format = "([$all_status$ahead_behind]($style)) "
+style = "green"
+
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "bold cyan"
+min_time = 1000   # показывать только если команда длилась > 1 сек
+
+[character]
+format = "$symbol "
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
+
+# ---- Заглушки для других модулей (отключаем, чтобы не перегружать) ----
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[package]
+disabled = true
+
+[rust]
+disabled = true
+
+[python]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[env_var]
+disabled = true
+
+[time]
+format = "[$time]($style) "
+style = "cyan"
+disabled = false
+time_format = "%H:%M"

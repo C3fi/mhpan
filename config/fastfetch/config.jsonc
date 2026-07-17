@@ -1,0 +1,91 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "logo": {
+    "source": "~/.config/fastfetch/logo.txt",
+    "padding": { "top": 2, "left": 2 },
+    "color": { "1": "\u001b[38;5;208m" }
+  },
+
+  "display": {
+    "separator": "",
+    "constants": ["──────────"],
+    "key": { "width": 8 }
+  },
+
+  "modules": [
+    "title",
+
+    // -------- Блок 1: OS --------
+    {
+      "type": "custom",
+      "format": "{#90}┌{$1} OS ────{$1}{$1}┐{#}"
+    },
+    { "key": "OS", "type": "os", "keyColor": "33" },
+    { "key": "Krnl", "type": "kernel", "keyColor": "93" },
+    { "key": "Up", "type": "uptime", "keyColor": "93" },
+    { "key": "Pkgs", "type": "packages", "keyColor": "34" },
+    { "key": "Shell", "type": "shell", "keyColor": "34" },
+    { "key": "Term", "type": "terminal", "keyColor": "94" },
+    { "key": "WM", "type": "wm", "keyColor": "32" },
+    {
+      "type": "custom",
+      "format": "{#90}└{$1}──────────────────{$1}┘{#}"
+    },
+
+    // -------- Блок 2: System --------
+    {
+      "type": "custom",
+      "format": "{#90}┌{$1} System {$1}{$1}┐{#}"
+    },
+    {
+      "key": "CPU",
+      "type": "command",
+      "keyColor": "33",
+      "text": "bash -c 'model=$(lscpu | grep \"Model name\" | cut -d: -f2 | xargs | sed \"s/Intel(R) Core(TM) //; s/ CPU @ .*//\"); usage=$(top -bn1 | grep \"Cpu(s)\" | awk \"{print \\$2}\" | cut -d% -f1); echo \"$model $usage%\"'"
+    },
+    { "key": "RAM", "type": "memory", "keyColor": "31" },
+    {
+      "key": "Disk",
+      "type": "disk",
+      "folders": ["/"],
+      "keyColor": "34",
+      "format": "{size-used} / {size-total} {mountpoint}"   // ← без ФС
+    },
+    {
+      "key": "Disk",
+      "type": "disk",
+      "folders": ["/home"],
+      "keyColor": "94",
+      "format": "{size-used} / {size-total} {mountpoint}"   // ← без ФС
+    },
+    { "key": "Procs", "type": "processes", "keyColor": "35" },
+    {
+      "type": "custom",
+      "format": "{#90}└{$1}──────────────────{$1}┘{#}"
+    },
+
+    // -------- Блок 3: Other --------
+    {
+      "type": "custom",
+      "format": "{#90}┌{$1} Other ─{$1}{$1}┐{#}"
+    },
+    { "key": "Date", "type": "datetime", "keyColor": "36" },
+  {
+    "key": "Music",
+    "type": "command",
+    "keyColor": "34",
+    "text": "bash -c 'info=$(playerctl metadata --format \"{{ artist }} - {{ title }}\" 2>/dev/null); if [ -z \"$info\" ]; then exit; fi; artist=$(echo \"$info\" | cut -d- -f1 | sed -E \"s/[[:space:]]*[,&].*//; s/[[:space:]]*$//\"); title=$(echo \"$info\" | cut -d- -f2 | sed \"s/^ //\"); if echo \"$info\" | cut -d- -f1 | grep -qE \"[,&]\"; then artist=\"$artist...\"; fi; echo \"$artist — $title\"'"
+  },
+    {
+      "type": "custom",
+      "format": "{#90}└{$1}──────────────────{$1}┘{#}"
+    },
+
+    // -------- Цветная строка --------
+    {
+      "type": "custom",
+      "format": "\u001b[33m󰮯 \u001b[32m󰊠 \u001b[34m󰊠 \u001b[31m󰊠 \u001b[36m󰊠 \u001b[35m󰊠 \u001b[37m󰊠 \u001b[97m󰊠"
+    }
+  ]
+}
