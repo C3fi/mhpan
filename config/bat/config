@@ -1,0 +1,4 @@
+--theme="ansi"
+--number
+--pager="less -R"
+--color=always

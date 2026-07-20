@@ -1,0 +1,29 @@
+[general]
+bars = 24
+framerate = 60
+autosens = 1
+sensitivity = 100
+
+[color]
+gradient = 1
+gradient_color_1 = '#1e2b22'
+gradient_color_2 = '#2d3a2d'
+gradient_color_3 = '#3d5a3d'
+gradient_color_4 = '#4d6b4d'
+gradient_color_5 = '#5d7d5d'
+gradient_color_6 = '#6d8f6d'
+gradient_color_7 = '#7fbf7f'
+gradient_color_8 = '#8fbf8f'
+gradient_color_9 = '#9fcf9f'
+gradient_color_10 = '#afdfaf'
+gradient_color_11 = '#bfefbf'
+gradient_color_12 = '#cff0cf'
+gradient_color_13 = '#dff5df'
+gradient_color_14 = '#effaef'
+gradient_color_15 = '#f5fff5'
+gradient_color_16 = '#ffffff'
+
+[output]
+method = ncurses
+monitor = 0
+channels = stereo

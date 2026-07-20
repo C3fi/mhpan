@@ -1,0 +1,12 @@
+gui:
+  theme:
+    activeBorderColor: ["green", "bold"]
+    inactiveBorderColor: ["white"]
+    selectedLineBgColor: ["default", "bold"]
+  showFileIcons: true
+  timeFormat: "15:04"
+  shortTimeFormat: "15:04"
+git:
+  pagers:
+    - colorArg: always
+      pager: bat --style=numbers --color=always

@@ -1,0 +1,10 @@
+fastfetch
+btop
+eza
+bat
+fd
+fzf
+zoxide
+ripgrep
+lazygit
+cava
