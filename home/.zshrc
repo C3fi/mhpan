@@ -45,7 +45,7 @@ alias tree='eza -T --icons'
 alias cat='bat'
 alias bathelp='bat --plain --language=help'                             # дерево каталогов
 alias find='fd'
-alias lg='lazygit'
+alias sshkey='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519'
 
 
 HISTSIZE=10000

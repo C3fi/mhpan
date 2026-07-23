@@ -1,0 +1,104 @@
+// ============================================================================
+// WAYBAR CONFIGURATION
+// ============================================================================
+
+// ============================================================================
+// BAR SETTINGS
+// ============================================================================
+{
+    "layer": "top",                 // Layer: top, bottom, or overlay
+    "position": "top",              // Position on screen
+    "height": 28,                   // Bar height in pixels
+    "spacing": 4,                   // Spacing between modules
+    "margin-top": 4,                // Top margin
+    "margin-left": 4,               // Left margin
+    "margin-right": 4,              // Right margin
+
+// ============================================================================
+// MODULE LAYOUT
+// ============================================================================
+    "modules-left": [               // Left-aligned modules
+        "niri/workspaces"
+    ],
+    "modules-center": [             // Center-aligned modules
+        "clock"
+    ],
+    "modules-right": [              // Right-aligned modules
+        "custom/stats",
+        "network",
+        "bluetooth",
+        "tray"
+    ],
+
+// ============================================================================
+// MODULE: NIRI WORKSPACES
+// ============================================================================
+    "niri/workspaces": {
+        "format": "{icon}",         // Display only the icon
+        "icons": {                  // Custom labels for workspaces 1–6
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6"
+        },
+        "active-only": false,       // Show all workspaces
+        "all-outputs": false,       // Only workspaces on current output
+        "disable-scroll": false,    // Allow scrolling to switch workspaces
+        "persistent_workspaces": {  // Keep workspaces alive even when empty
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": []
+        }
+    },
+
+// ============================================================================
+// MODULE: CLOCK
+// ============================================================================
+    "clock": {
+        "format": "{:%a %d %b %Y  |  %H:%M:%S}",  // Date and time format
+        "interval": 1,                           // Update every second
+        "locale": "ru_RU.UTF-8"                  // Russian locale
+    },
+
+// ============================================================================
+// MODULE: CUSTOM STATS (CPU, TEMPERATURE, MEMORY)
+// ============================================================================
+    "custom/stats": {
+        "exec": "~/.config/waybar/scripts/stats.sh",  // Script path
+        "interval": 2,                               // Update every 2 seconds
+        "format": "{}"                               // Display raw output
+    },
+
+// ============================================================================
+// MODULE: NETWORK
+// ============================================================================
+    "network": {
+        "format-wifi": " {essid}",          // Wi‑Fi with ESSID
+        "format-ethernet": "󰈁",             // Ethernet icon
+        "format-disconnected": "󰤮",          // Disconnected icon
+        "max-length": 15,                   // Truncate long ESSIDs
+        "on-click": "nm-connection-editor"  // Open network settings
+    },
+
+// ============================================================================
+// MODULE: BLUETOOTH
+// ============================================================================
+    "bluetooth": {
+        "format": "󰂯",                       // Enabled icon
+        "format-disabled": "󰂲",              // Disabled icon
+        "on-click": "blueman-manager"       // Open Bluetooth manager
+    },
+
+// ============================================================================
+// MODULE: SYSTEM TRAY
+// ============================================================================
+    "tray": {
+        "icon-size": 20,        // Tray icon size
+        "spacing": 6            // Spacing between tray icons
+    }
+}
