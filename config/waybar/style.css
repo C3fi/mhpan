@@ -1,10 +1,10 @@
-// ============================================================================
-// WAYBAR STYLES
-// ============================================================================
+/* ============================================================================
+   WAYBAR STYLES
+   ============================================================================ */
 
-// ============================================================================
-// GLOBAL RESET & FONTS
-// ============================================================================
+/* ============================================================================
+   GLOBAL RESET & FONTS
+   ============================================================================ */
 * {
     border: none;
     border-radius: 10px;
@@ -13,63 +13,63 @@
     min-height: 0;
 }
 
-// ============================================================================
-// MAIN WINDOW
-// ============================================================================
+/* ============================================================================
+   MAIN WINDOW
+   ============================================================================ */
 window#waybar {
-    background: rgba(34, 34, 27, 0.85);   // Semi‑transparent dark background
-    color: #929181;                       // Default text colour
-    border: 1px solid rgba(108, 107, 90, 0.3);  // Subtle border
+    background: rgba(34, 34, 27, 0.85);   
+    color: #929181;                      
+    border: 1px solid rgba(108, 107, 90, 0.3);
     padding: 2px 6px;
 }
 
-// ============================================================================
-// WORKSPACE BUTTONS
-// ============================================================================
+/* ============================================================================
+   WORKSPACE BUTTONS
+   ============================================================================ */
 #workspaces button {
     padding: 0 6px;
     background: transparent;
-    color: #6c6b5a;                       // Inactive workspace colour
+    color: #6c6b5a;                       
     border-radius: 6px;
     font-size: 13px;
 }
 
 #workspaces button.active {
-    background: #36a166;                  // Active workspace background
-    color: #e7e6df;                       // Active workspace text
+    background: #36a166;                 
+    color: #e7e6df;                       
 }
 
-// ============================================================================
-// CLOCK MODULE
-// ============================================================================
+/* ============================================================================
+   CLOCK MODULE
+   ============================================================================ */
 #clock {
-    background: rgba(0, 0, 0, 0.2);       // Slightly translucent background
+    background: rgba(0, 0, 0, 0.2);       
     padding: 2px 14px;
-    color: #e7e6df;                       // Light text
+    color: #e7e6df;                      
     font-weight: bold;
     font-size: 14px;
 }
 
-// ============================================================================
-// CUSTOM STATS, NETWORK, BLUETOOTH, TRAY
-// ============================================================================
+/* ============================================================================
+   CUSTOM STATS, NETWORK, BLUETOOTH, TRAY
+   ============================================================================ */
 #custom-stats,
 #network,
 #bluetooth,
 #tray {
     padding: 0 8px;
-    background: rgba(0, 0, 0, 0.2);       // Uniform background for modules
+    background: rgba(0, 0, 0, 0.2);       /* Uniform background for modules */
     border-radius: 6px;
     font-size: 12px;
     margin: 0 2px;
 }
 
-// Individual colour overrides
-#custom-stats { color: #cdd6f4; }         // Light blueish
-#network      { color: #89b4fa; }         // Blue
-#bluetooth    { color: #f5c2e7; }         // Pink
+/* Individual colour overrides */
+#custom-stats { color: #cdd6f4; }         /* Light blueish */
+#network      { color: #89b4fa; }         /* Blue */
+#bluetooth    { color: #f5c2e7; }         /* Pink */
 
-// Tray module – transparent background, less padding
+/* Tray module – transparent background, less padding */
 #tray {
     background: transparent;
     padding: 0 4px;

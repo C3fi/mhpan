@@ -3,7 +3,7 @@
 # niri-move-window-to-column
 # Moves the focused window to the adjacent column (left or right).
 # Usage: niri-move-window-to-column.sh left|right
-
+# now don't used at project
 set -euo pipefail
 
 DIRECTION="${1:-}"
