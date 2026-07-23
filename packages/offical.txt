@@ -8,3 +8,4 @@ zoxide
 ripgrep
 lazygit
 cava
+jq

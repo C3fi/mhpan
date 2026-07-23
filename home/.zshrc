@@ -36,6 +36,17 @@ alias update='sudo pacman -Syu'
 alias y='yazi'
 alias ff="fastfetch"
 alias off="poweroff"
+# Замените обычный ls на eza с иконками и группировкой папок
+alias ls='eza --icons --group-directories-first'
+# Удобные алиасы для частых задач
+alias ll='eza -l --icons --git --group-directories-first'  # подробный список
+alias la='eza -la --icons --git --group-directories-first' # все файлы, включая скрытые
+alias tree='eza -T --icons'   
+alias cat='bat'
+alias bathelp='bat --plain --language=help'                             # дерево каталогов
+alias find='fd'
+alias lg='lazygit'
+
 
 HISTSIZE=10000
 SAVEHIST=10000
@@ -47,6 +58,7 @@ setopt HIST_FIND_NO_DUPS   # не показывать дубли при пои�
 # Source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+
 eval "ff"
-# Starship prompt
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
