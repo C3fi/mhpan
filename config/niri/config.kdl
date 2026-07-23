@@ -1,0 +1,379 @@
+// ============================================================================
+// INPUT
+// ============================================================================
+
+input {
+    keyboard {
+        xkb { // Keyboard layout switching (US/RU with Alt+Shift toggle)
+            layout "us,ru"
+            options "grp:alt_shift_toggle,compose:ralt,ctrl:nocaps"
+        }
+        numlock
+    }
+
+    touchpad { // Disabled (hardware not available)
+        off
+    }
+
+    mouse {
+        // off                       // Uncomment to disable mouse
+        // natural-scroll            // Uncomment to enable natural scrolling
+        accel-speed 0.2
+        accel-profile "flat"
+        // scroll-method "no-scroll" // Uncomment to disable scrolling
+    }
+
+    trackpoint { // Disabled (ThinkPad trackpoint)
+        off
+    }
+
+    // Focus follows mouse; windows must be at least 50% visible to receive focus
+    focus-follows-mouse max-scroll-amount="50%"
+}
+
+// ============================================================================
+// OUTPUTS
+// ============================================================================
+
+output "LVDS-1" {
+    mode "1366x768@59.996"
+    scale 1
+    position x=0 y=0
+}
+
+output "HDMI-A-1" {
+    mode "1920x1080@75.003"
+    scale 1
+    position x=1366 y=-300
+}
+
+// ============================================================================
+// LAYOUT
+// ============================================================================
+
+layout {
+    gaps 16
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        width 4
+        active-color "#36a166"     
+        inactive-color "#5f5e4e"   
+    }
+
+    border { 
+        off                         // Disable additional border (focus-ring is used)
+    }
+
+    shadow {
+        softness 35
+        spread 6
+        offset x=0 y=6
+        color "#22221bCC"          
+    }
+    struts {
+        // left 64                  // Uncomment to reserve space on each side
+        // right 64
+        // top 64
+        // bottom 64
+    }
+}
+
+
+// ============================================================================
+// WORKSPACES
+// ============================================================================
+
+workspace "1" {
+    open-on-output "LVDS-1"
+}
+
+workspace "2" {
+    open-on-output "LVDS-1"
+}
+
+workspace "3" {
+    open-on-output "LVDS-1"
+}
+
+workspace "4" {
+    open-on-output "LVDS-1"
+}
+
+workspace "5" {
+    open-on-output "LVDS-1"
+}
+
+workspace "6" {
+    open-on-output "LVDS-1"
+}
+
+// ============================================================================
+// STARTUP
+// ============================================================================
+
+spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+spawn-at-startup "kitty" "--single-instance" "--detach"
+spawn-at-startup "waybar"
+spawn-at-startup "swaybg" "-i" "$HOME/dotfiles/wallpapers/wallpaper0_3.png" "-m" "fill"
+spawn-at-startup "vicinae" "server"
+
+// ============================================================================
+// GLOBAL SETTINGS
+// ============================================================================
+
+// Skip the hotkey overlay popup on startup
+hotkey-overlay {
+    skip-at-startup
+}
+
+// Ask clients not to draw their own window decorations
+prefer-no-csd
+
+// Screenshot save path with date formatting
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// Animation speed multiplier (1 = normal)
+animations {
+    slowdown 1
+}
+
+// ============================================================================
+// WINDOW RULES
+// ============================================================================
+
+// Global rule: move all new windows to workspace 6 by default
+window-rule {
+    open-on-workspace "1"
+}
+
+// Global appearance for all windows
+window-rule {
+    draw-border-with-background false
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+// Application-specific rules
+// Zen browser
+window-rule {
+    match app-id="zen"
+    default-column-width { proportion 1.0; }
+    open-on-workspace "2"
+}
+
+// Obsidian
+window-rule {
+    match app-id="obsidian"
+    default-column-width { proportion 1.0; }
+    open-on-workspace "4"
+}
+
+// VS Code (by app-id)
+window-rule {
+    match app-id="code"
+    default-column-width { proportion 1.0; }
+    open-on-workspace "3"
+}
+
+// VS Code (by title fallback)
+window-rule {
+    match title="Visual Studio Code"
+    default-column-width { proportion 1.0; }
+    open-on-workspace "3"
+}
+
+// Steam
+window-rule {
+    match app-id="steam"
+    default-column-width { proportion 1.0; }
+    open-on-workspace "6"
+}
+
+// Discord (Vesktop)
+window-rule {
+    match app-id="vesktop"
+    default-column-width { proportion 1.0; }
+    open-on-workspace "5"
+}
+
+// Telegram
+window-rule {
+    match app-id="org.telegram.desktop"
+    default-column-width { proportion 1.0; }
+    open-on-workspace "5"
+}
+
+// Spotify
+window-rule {
+    match app-id="spotify"
+    open-on-workspace "5"
+}
+
+// Environment variables for graphical applications
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    vblank_mode "0"
+}
+
+// ============================================================================
+// KEYBINDS
+// ============================================================================
+
+binds {
+    // ------------------------------------------------------------------------
+    // Help / System
+    // ------------------------------------------------------------------------
+    Mod+Shift+Slash { show-hotkey-overlay; } // Show hotkey overlay
+
+    // ------------------------------------------------------------------------
+    // Application Launchers
+    // ------------------------------------------------------------------------
+    Mod+T hotkey-overlay-title="Open a Terminal: foot" {
+        spawn "kitty";
+    }
+    Mod+D hotkey-overlay-title="Run an Application: vicinae" {
+        spawn "vicinae" "toggle";
+    }
+
+    // Toggle screen reader (Orca)
+    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null {
+        spawn-sh "pkill orca S|| exec orca";
+    }
+
+    // ------------------------------------------------------------------------
+    // Audio Controls
+    // ------------------------------------------------------------------------
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0";
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
+    }
+    XF86AudioMute allow-when-locked=true {
+        spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+    }
+    XF86AudioMicMute allow-when-locked=true {
+        spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+    }
+
+    // ------------------------------------------------------------------------
+    // Window & Workspace Overview
+    // ------------------------------------------------------------------------
+    Mod+O repeat=false { toggle-overview; } // Open overview
+
+    // Close window
+    Mod+Q repeat=false { close-window; }
+
+    // ------------------------------------------------------------------------
+    // Focus Movement
+    // ------------------------------------------------------------------------
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+
+    // Move windows within workspace
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Down  { move-window-down; }
+    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Right { move-column-right; }
+
+    // ------------------------------------------------------------------------
+    // Move Window Between Columns (built-in)
+    // ------------------------------------------------------------------------
+    Mod+Alt+Left  { consume-or-expel-window-left; }  // Move window between columns
+    Mod+Alt+Right { consume-or-expel-window-right; }
+
+    // Monitor focus
+    Mod+Shift+Left  { focus-monitor-left; }
+    Mod+Shift+Right { focus-monitor-right; }
+
+    // Move column to other monitor
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+
+    // Workspace navigation
+    Mod+U { focus-workspace-down; }
+    Mod+I { focus-workspace-up; }
+
+    // Move column to workspace
+    Mod+Ctrl+U { move-column-to-workspace-down; }
+    Mod+Ctrl+I { move-column-to-workspace-up; }
+
+    // Workspace switching via mouse wheel
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    // Direct workspace focus
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+
+    // Move column to workspace
+    Mod+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
+
+    // ------------------------------------------------------------------------
+    // Window Sizing & Layout
+    // ------------------------------------------------------------------------
+    Mod+R { switch-preset-column-width; }               // Next column width preset
+    Mod+Shift+R { switch-preset-column-width-back; }    // Previous column width preset
+    Mod+F { maximize-column; }                          // Maximize column
+    Mod+M { maximize-window-to-edges; }                 // Maximize to edges
+
+    // Window height adjustments
+    Mod+Ctrl+R { switch-preset-window-height; }         // Next height preset
+    Mod+Ctrl+Shift+R { reset-window-height; }           // Reset height
+
+    // Center column
+    Mod+C { center-column; }
+
+    // Resize column width by 10%
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    // Resize window height by 10%
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // Floating window toggles
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    // ------------------------------------------------------------------------
+    // Screenshots
+    // ------------------------------------------------------------------------
+    Print       { screenshot; }          // Full screen
+    Ctrl+Print  { screenshot-screen; }   // Current monitor
+    Alt+Print   { screenshot-window; }   // Active window
+
+    // ------------------------------------------------------------------------
+    // Miscellaneous
+    // ------------------------------------------------------------------------
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // Exit Niri
+    Ctrl+Alt+Delete { quit; }
+
+    // Power off monitors
+    Mod+Shift+P { power-off-monitors; }
+}
