@@ -1,0 +1,26 @@
+# Основные настройки
+anchor=top-right
+width=380
+height=140
+margin=15
+padding=10
+border-radius=10
+border-size=2
+
+# Цвета с прозрачностью
+background-color=#22221bCC
+text-color=#929181
+border-color=#36a166
+progress-color=#7d9726
+
+# Шрифт — безопасно через monospace
+font=monospace 11
+
+# Поведение
+default-timeout=5000
+max-visible=5
+sort=-time
+group-by=app-name
+icons=1
+max-icon-size=56
+actions=1
