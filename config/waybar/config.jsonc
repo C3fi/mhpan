@@ -23,7 +23,8 @@
     "modules-center": [             // Center-aligned modules
         "clock"
     ],
-    "modules-right": [              // Right-aligned modules
+    "modules-right": [    // Right-aligned modules
+        "custom/status",          
         "custom/stats",
         "network",
         "bluetooth",
@@ -70,7 +71,7 @@
 // ============================================================================
     "custom/stats": {
         "exec": "~/.config/waybar/scripts/stats.sh",  // Script path
-        "interval": 2,                               // Update every 2 seconds
+        "interval": 1,                               // Update every 1 seconds
         "format": "{}"                               // Display raw output
     },
 
