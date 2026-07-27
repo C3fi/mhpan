@@ -210,13 +210,14 @@ window-rule {
 // Telegram
 window-rule {
     match app-id="org.telegram.desktop"
-    default-column-width { proportion 1.0; }
+    default-column-width { proportion 0.33333; }
     open-on-workspace "5"
 }
 
 // Spotify
 window-rule {
     match app-id="spotify"
+    default-column-width { proportion 0.66667; }
     open-on-workspace "5"
 }
 
