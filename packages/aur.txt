@@ -1,4 +1,5 @@
 pipes.sh
 peaclock
 lavat
-
+everforest-gtk-theme-git
+awww

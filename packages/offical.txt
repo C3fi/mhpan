@@ -9,3 +9,5 @@ ripgrep
 lazygit
 cava
 jq
+papirus-icon-theme
+nwg-look
