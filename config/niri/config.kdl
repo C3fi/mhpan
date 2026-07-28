@@ -124,7 +124,8 @@ workspace "6" {
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-at-startup "kitty" "--single-instance" "--detach"
 spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-i" "~/Pictures/wallpaper/wallpaper0_1.jpg" "-m" "fill"
+spawn-at-startup "awww-daemon"
+spawn-at-startup "awww" "img" "~/Pictures/wallpaper/wallpaper0_1.jpg"
 spawn-at-startup "vicinae" "server"
 spawn-at-startup "mako"
 
