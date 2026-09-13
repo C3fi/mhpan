@@ -3,3 +3,8 @@ peaclock
 lavat
 everforest-gtk-theme-git
 awww
+vesktop-bin 
+vicinae-bin 
+zen-browser-bin 
+visual-studio-code-bin 
+spotify
