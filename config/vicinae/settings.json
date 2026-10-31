@@ -10,6 +10,11 @@
 
 {
    "$schema": "https://vicinae.com/schemas/config.json",
+   "activate_on_single_click": true,
+   "wrap_navigation": true,
+   "tray": {
+      "enabled": false
+   },
    "font": {
       "normal": {
          "family": "JetBrainsMono Nerd Font Mono"
@@ -17,7 +22,7 @@
    },
    "theme": {
       "dark": {
-         "name": "gruvbox-dark",
+         "name": "zenwritten-dark",
          "icon_theme": "Adwaita"
       }
    },
@@ -26,6 +31,350 @@
       "compact_mode": {
          "enabled": true
       },
+      "layer_shell": {
+         "layer": "overlay"
+      },
       "material": "blur"
+   },
+   "providers": {
+      "@leonkohli/store.vicinae.process-manager": {
+         "preferences": {
+            "refresh-interval": "2000",
+            "sort-by-memory": false,
+            "show-system-processes": false,
+            "show-pid": true,
+            "show-path": false,
+            "search-in-paths": true,
+            "search-in-pid": true,
+            "close-window-after-kill": false,
+            "clear-search-after-kill": false,
+            "process-limit": "100"
+         }
+      },
+      "@sovereign/store.vicinae.awww-switcher": {
+         "enabled": false,
+         "preferences": {
+            "gridRows": "4",
+            "transitionType": "random",
+            "transitionDuration": "3",
+            "transitionStep": "90",
+            "transitionFPS": "60",
+            "colorGenTool": "none",
+            "toggleVicinaeSetting": true,
+            "showImageDetails": true,
+            "postProduction": "no",
+            "wallpaperPath": "/home/c3f/Изображения/wallpapers"
+         }
+      },
+      "applications": {
+         "entrypoints": {
+            "ai.storyteller.filmcraft": {
+               "enabled": false
+            },
+            "ai.storyteller.photocraft": {
+               "enabled": false
+            },
+            "avahi-discover": {
+               "enabled": false
+            },
+            "blueman-manager": {
+               "enabled": false
+            },
+            "bssh": {
+               "enabled": false
+            },
+            "btop": {
+               "enabled": false
+            },
+            "btrfs-assistant": {
+               "enabled": false
+            },
+            "bvnc": {
+               "enabled": false
+            },
+            "cachyos-hello": {
+               "enabled": false
+            },
+            "cachyos-pi": {
+               "enabled": false
+            },
+            "com.shellyorg.shelly": {
+               "enabled": false
+            },
+            "dev.noctalia.Noctalia": {
+               "enabled": false
+            },
+            "limine-snapper-restore": {
+               "enabled": false
+            },
+            "lstopo": {
+               "enabled": false
+            },
+            "micro": {
+               "enabled": false
+            },
+            "nm-connection-editor": {
+               "enabled": false
+            },
+            "nvim": {
+               "enabled": false
+            },
+            "nwg-look": {
+               "enabled": false
+            },
+            "org.cachyos.KernelManager": {
+               "enabled": false
+            },
+            "org.cachyos.scx-manager": {
+               "enabled": false
+            },
+            "org.gnome.Meld": {
+               "enabled": false
+            },
+            "org.gnome.Nautilus": {
+               "enabled": true
+            },
+            "org.pulseaudio.pavucontrol": {
+               "enabled": false
+            },
+            "qv4l2": {
+               "enabled": false
+            },
+            "qvidcap": {
+               "enabled": false
+            },
+            "spotify": {
+               "enabled": false
+            },
+            "vicinae": {
+               "enabled": false
+            },
+            "vim": {
+               "enabled": false
+            },
+            "xgps": {
+               "enabled": false
+            },
+            "xgpsspeed": {
+               "enabled": false
+            },
+            "yazi": {
+               "enabled": false
+            }
+         }
+      },
+      "browser-extension": {
+         "entrypoints": {
+            "browse-tabs": {
+               "enabled": false
+            },
+            "shortcut-active-tab": {
+               "enabled": false
+            }
+         }
+      },
+      "clipboard": {
+         "entrypoints": {
+            "clear": {
+               "enabled": false
+            },
+            "clear-history": {
+               "enabled": false
+            }
+         }
+      },
+      "core": {
+         "entrypoints": {
+            "list-extensions": {
+               "enabled": false
+            },
+            "manage-fallback": {
+               "enabled": false
+            },
+            "open-config-file": {
+               "enabled": false
+            },
+            "open-default-config": {
+               "enabled": false
+            },
+            "refresh-apps": {
+               "enabled": false
+            },
+            "reload-scripts": {
+               "enabled": false
+            },
+            "report-bug": {
+               "enabled": false
+            },
+            "search-tray": {
+               "enabled": false
+            },
+            "settings": {
+               "enabled": false
+            },
+            "show-logs": {
+               "enabled": false
+            },
+            "sponsor": {
+               "enabled": false
+            },
+            "store": {
+               "enabled": false
+            }
+         }
+      },
+      "developer": {
+         "entrypoints": {
+            "create": {
+               "enabled": false
+            }
+         }
+      },
+      "files": {
+         "entrypoints": {
+            "search": {
+               "enabled": false
+            }
+         }
+      },
+      "font": {
+         "entrypoints": {
+            "browse": {
+               "enabled": false
+            }
+         }
+      },
+      "manage-shortcuts": {
+         "entrypoints": {
+            "create": {
+               "enabled": false
+            },
+            "manage": {
+               "enabled": false
+            }
+         }
+      },
+      "media": {
+         "entrypoints": {
+            "next-track": {
+               "enabled": false
+            },
+            "now-playing": {
+               "enabled": false
+            },
+            "play-pause": {
+               "enabled": false
+            },
+            "previous-track": {
+               "enabled": false
+            },
+            "toggle-mute": {
+               "enabled": false
+            },
+            "volume-0": {
+               "enabled": false
+            },
+            "volume-100": {
+               "enabled": false
+            },
+            "volume-25": {
+               "enabled": false
+            },
+            "volume-50": {
+               "enabled": false
+            },
+            "volume-75": {
+               "enabled": false
+            },
+            "volume-down": {
+               "enabled": false
+            },
+            "volume-up": {
+               "enabled": false
+            }
+         }
+      },
+      "power": {
+         "entrypoints": {
+            "hibernate": {
+               "enabled": false
+            },
+            "lock": {
+               "enabled": false
+            },
+            "logout": {
+               "enabled": false
+            },
+            "soft-reboot": {
+               "enabled": false
+            },
+            "suspend": {
+               "enabled": false
+            }
+         }
+      },
+      "raycast-compat": {
+         "entrypoints": {
+            "store": {
+               "enabled": false
+            }
+         }
+      },
+      "snippets": {
+         "preferences": {
+            "enabled": true,
+            "undo": true,
+            "layout": "",
+            "prePasteDelay": "0",
+            "keyDelay": "2"
+         },
+         "entrypoints": {
+            "create": {
+               "enabled": false
+            },
+            "manage": {
+               "enabled": false
+            }
+         }
+      },
+      "system": {
+         "entrypoints": {
+            "run": {
+               "enabled": false
+            },
+            "set-default-browser": {
+               "enabled": false
+            },
+            "set-default-terminal": {
+               "enabled": false
+            }
+         }
+      },
+      "theme": {
+         "entrypoints": {
+            "set": {
+               "enabled": false
+            }
+         }
+      },
+      "wm": {
+         "entrypoints": {
+            "switch-windows": {
+               "enabled": false
+            },
+            "switch-workspaces": {
+               "enabled": false
+            },
+            "toggle-floating": {
+               "enabled": false
+            },
+            "toggle-fullscreen": {
+               "enabled": false
+            },
+            "toggle-overview": {
+               "enabled": false
+            }
+         }
+      }
    }
 }
