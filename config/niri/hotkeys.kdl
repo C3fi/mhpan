@@ -1,0 +1,142 @@
+// ============================================================================
+// KEYBINDS
+// ============================================================================
+binds {
+    // ------------------------------------------------------------------------
+    // Application Launchers
+    // ------------------------------------------------------------------------
+    Mod+T hotkey-overlay-title="Open a Terminal: kitty" {
+        spawn "kitty";
+    }
+    Mod+D hotkey-overlay-title="Run an Application: vicinae" {
+        spawn "vicinae" "toggle";
+    }
+    // ------------------------------------------------------------------------
+    // Audio Controls
+    // ------------------------------------------------------------------------
+    XF86AudioRaiseVolume allow-when-locked=true {
+            spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0 ";
+        }
+        XF86AudioLowerVolume allow-when-locked=true {
+            spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
+        }
+        XF86AudioMute allow-when-locked=true {
+            spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        }
+        XF86AudioMicMute allow-when-locked=true {
+            spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+        }
+
+    // ------------------------------------------------------------------------
+    // Window & Workspace Overview
+    // ------------------------------------------------------------------------
+    Mod+O repeat=false { toggle-overview; } // Open overview
+
+    // Close window
+    Mod+Q repeat=false { close-window; }
+
+    // ------------------------------------------------------------------------
+    // Focus Movement
+    // ------------------------------------------------------------------------
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+
+    // Move windows within workspace
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Down  { move-window-down; }
+    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Right { move-column-right; }
+
+    // ------------------------------------------------------------------------
+    // Move Window Between Columns (built-in)
+    // ------------------------------------------------------------------------
+    Mod+Alt+Left  { consume-or-expel-window-left; }  // Move window between columns
+    Mod+Alt+Right { consume-or-expel-window-right; }
+
+    // Monitor focus
+    Mod+Shift+Left  { focus-monitor-left; }
+    Mod+Shift+Right { focus-monitor-right; }
+
+    // Move column to other monitor
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+
+    // Workspace navigation
+    Mod+j { focus-workspace-down; }
+    Mod+k { focus-workspace-up; }
+
+    // Move column to workspace
+    Mod+Ctrl+j { move-column-to-workspace-down; }
+    Mod+Ctrl+k { move-column-to-workspace-up; }
+
+    // Workspace switching via mouse wheel
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    // Direct workspace focus
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+
+    // Move column to workspace
+    Mod+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
+
+    // ------------------------------------------------------------------------
+    // Window Sizing & Layout
+    // ------------------------------------------------------------------------
+    Mod+R { switch-preset-column-width; }               // Next column width preset
+    Mod+Shift+R { switch-preset-column-width-back; }    // Previous column width preset
+    Mod+F { maximize-column; }                          // Maximize column
+    Mod+M { maximize-window-to-edges; }                 // Maximize to edges
+
+    // Window height adjustments
+    Mod+Ctrl+R { switch-preset-window-height; }         // Next height preset
+    Mod+Ctrl+Shift+R { reset-window-height; }           // Reset height
+
+    // Center column
+    Mod+C { center-column; }
+
+    // Resize column width by 10%
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    // Resize window height by 10%
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // Floating window toggles
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    // ------------------------------------------------------------------------
+    // Screenshots
+    // ------------------------------------------------------------------------
+    Shift+F12       { screenshot; }          // Full screen
+    Ctrl+F12  { screenshot-screen; }   // Current monitor
+    Alt+F12   { screenshot-window; }   // Active window
+
+    // ------------------------------------------------------------------------
+    // Miscellaneous
+    // ------------------------------------------------------------------------
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // Exit Niri
+    Ctrl+Alt+Delete { quit; }
+
+    // Power off monitors
+    Mod+Shift+P { power-off-monitors; }
+
+    Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
+}

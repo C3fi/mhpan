@@ -1,0 +1,84 @@
+// ============================================================================
+// WINDOW RULES
+// ============================================================================
+
+// Global rule: move all new windows to workspace 6 by default
+window-rule {
+    open-on-workspace "1"
+}
+
+// Global appearance for all windows
+window-rule {
+    draw-border-with-background false
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+// Application-specific rules
+// Zen browser
+window-rule {
+    match app-id="zen"
+    default-column-width { proportion 1.0; }
+    open-on-workspace "2"
+}
+
+// Obsidian
+window-rule {
+    match app-id="obsidian"
+    default-column-width { proportion 1.0; }
+    open-on-workspace "4"
+}
+
+// VS Code (by app-id)
+window-rule {
+    match app-id="code"
+    default-column-width { proportion 1.0; }
+    open-on-workspace "3"
+}
+
+window-rule {
+    match app-id="com.microsoft.VSCode"
+    default-column-width { proportion 1.0; }
+    open-on-workspace "3"
+}
+
+// Steam
+window-rule {
+    match app-id="steam"
+    default-column-width { proportion 1.0; }
+    open-on-workspace "6"
+}
+
+//Prism
+window-rule {
+    match app-id="org.prismlauncher.PrismLauncher"
+    default-column-width { proportion 0.5; }
+    open-on-workspace "6"
+}
+
+// Discord (Vesktop)
+window-rule {
+    match app-id="vesktop"
+    default-column-width { proportion 0.75; }
+    open-on-workspace "5"
+}
+
+// Telegram
+window-rule {
+    match app-id="org.telegram.desktop"
+    default-column-width { proportion 0.25; }
+    open-on-workspace "5"
+}
+
+// Yandex music
+window-rule {
+    match app-id="YandexMusic"
+    default-column-width { proportion 0.25; }
+    open-on-workspace "5"
+}
+
+// Environment variables for graphical applications
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    vblank_mode "0"
+}

@@ -1,0 +1,8 @@
+// ============================================================================
+// STARTUP
+// ============================================================================
+
+spawn-at-startup "kitty" "--single-instance" "--detach"
+spawn-at-startup "noctalia"
+spawn-at-startup "vicinae" "server"
+spawn-at-startup "tg-ws-proxy"
