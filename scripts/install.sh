@@ -2,7 +2,7 @@
 
 set -e
 
-PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(git rev-parse --show-toplevel)"
 export PROJECT_ROOT
 
 source "$PROJECT_ROOT/lib/colors.sh"
@@ -23,31 +23,23 @@ trap 'error_handler $LINENO "$BASH_COMMAND"' ERR
 
 main() {
 
-    log_info "[1/7] Checking system..."
+    log_info "[1/5] Checking system..."
     check_system
     log_success "System check completed."
 
-    log_info "[2/7] Installing packages..."
+    log_info "[2/5] Installing packages..."
     install_packages
     log_success "Packages installed."
 
-    log_info "[3/7] Installing fonts..."
-    install_fonts
-    log_success "Fonts installed."
-
-    log_info "[4/7] Installing configs..."
+    log_info "[3/5] Installing configs..."
     install_configs
     log_success "Configs installed."
 
-    log_info "[5/7] Installing home..."
+    log_info "[4/5] Installing home..."
     install_home
     log_success "Home files installed."
 
-    log_info "[6/7] Installing themes..."
-    install_themes
-    log_success "Themes installed."
-
-    log_info "[7/7] Installing wallpapers..."
+    log_info "[5/5] Installing wallpapers..."
     install_wallpapers
     log_success "Wallpapers installed."
 

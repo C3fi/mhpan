@@ -8,14 +8,12 @@ zoxide
 ripgrep
 lazygit
 cava
-jq
-papirus-icon-theme
-nwg-look
 telegram-desktop 
 obsidian 
 kitty 
 vim 
 neovim 
-waybar 
 prismlauncher
 steam
+zip
+noctalia
